@@ -33,13 +33,14 @@ var plugin = {
     }
 };
 
-try {
-    plugin.crn = require('./../lib/crn_decomp');
-} catch (e) {
-    //oh well, couldn't require it - probably due to eval() not being allowed in whatever context
-    //we are loaded in
-    console.warn('Unable to load crn decompression in pixi-compressed-textures');
-}
+// commenting this out as it was causing a build error on gatsby 2.0.3
+//try {
+//    plugin.crn = require('./../lib/crn_decomp');
+//} catch (e) {
+//    //oh well, couldn't require it - probably due to eval() not being allowed in whatever context
+//    //we are loaded in
+//    console.warn('Unable to load crn decompression in pixi-compressed-textures');
+//}
 
 Object.assign(PIXI.glCore.GLTexture.prototype, plugin.GLTextureMixin);
 
